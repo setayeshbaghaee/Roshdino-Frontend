@@ -6,10 +6,19 @@
   box-sizing: border-box;
 }
 
+
 body {
   direction: rtl;
   font-family: 'Vazirmatn', sans-serif;
-  background-color: #f8f5ea;
+
+  background-image: url('../assets/background.png');
+
+  background-size: cover;
+  background-position: center 100 px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
 }
 
 .page {
