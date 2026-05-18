@@ -6,9 +6,18 @@ import intermediate_icon from "../../assets/logos/intermediate.png";
 import advance_icon from "../../assets/logos/advance.png";
 
 const levels = [
-  { name: 'مبتدی' , icon:begginer_icon },
-  { name: 'متوسط' ,icon : intermediate_icon},
-  { name: 'پیشرفته', icon : advance_icon }
+  {
+    name: 'مبتدی (شروع مسیر یادگیری)',
+    icon: begginer_icon
+  },
+  {
+    name: 'متوسط (دارای تجربه اولیه)',
+    icon: intermediate_icon
+  },
+  {
+    name: 'پیشرفته (تجربه و مهارت بالا)',
+    icon: advance_icon
+  }
 ];
 
 const StepLevel = ({ dispatch, nextStep, prevStep, selected }) => {

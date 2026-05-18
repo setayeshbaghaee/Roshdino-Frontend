@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import OptionGridMulti from './OptionGrid';
+import online_icon from "../../assets/logos/online.png";
+import video_icon from "../../assets/logos/video.png";
+import article_icon from "../../assets/logos/article.png";
+import voice_icon from "../../assets/logos/voice.png";
 
 const filters = [
-  { name: 'مجازی' },
-  { name: 'ویدئو' },
-  { name: 'صوتی' },
-  { name: 'مقاله' }
+  { name: 'مجازی' , icon: online_icon },
+  { name: 'ویدئو' , icon : video_icon},
+  { name: 'صوتی', icon: voice_icon },
+  { name: 'مقاله', icon: article_icon }
 ];
 
 const StepFilter = ({ dispatch, prevStep, formState, handleSubmit }) => {
