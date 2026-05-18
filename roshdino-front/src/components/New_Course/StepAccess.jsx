@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import OptionGrid from './OptionGrid';
+import money_icon from "../../assets/logos/money.png";
+import free_icon from "../../assets/logos/free.png";
 
 const accessTypes = [
-  { name: 'رایگان' },
-  { name: 'پولی' }
+  { name: 'رایگان', icon: free_icon },
+  { name: 'پولی' , icon: money_icon }
 ];
 
 const StepAccess = ({ dispatch, nextStep, prevStep, selected }) => {
