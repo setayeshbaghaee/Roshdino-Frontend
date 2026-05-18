@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
+import Form from './pages/Form'
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/add_course' element={<Form />} />
+
         <Route path='*' element={<NotFound />} />
       </Routes>
 
