@@ -9,6 +9,7 @@ import Services from './pages/Services'
 import Articles from './pages/Articles'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
+import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
 import Form from './pages/Form'
@@ -26,6 +27,7 @@ function App() {
         <Route path='/articles' element={<Articles />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/add_course' element={<Form />} />
 
