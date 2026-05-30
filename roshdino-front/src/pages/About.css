@@ -1,0 +1,61 @@
+.about-page-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-right: 10%; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    direction: rtl;
+}
+
+.glass-box {
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 48px;
+    color: #1a4d3a;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.feature-card h3 {
+    color: #1a4d3a;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #444;
+}
