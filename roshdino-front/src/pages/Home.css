@@ -1,0 +1,55 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 10%;
+    min-height: 70vh;
+    direction: rtl;
+}
+
+.content-section {
+    flex: 1;
+    max-width: 500px;
+}
+
+.main-title {
+    font-size: 64px;
+    color: #0d3b2e; /* رنگ سبز تیره لوگو */
+    margin-bottom: 10px;
+}
+
+.sub-title {
+    font-size: 32px;
+    color: #2a5a4a;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 18px;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    font-family: inherit;
+    background-color: #e5989b;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #d67a7d;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
