@@ -1,39 +1,66 @@
-import React, { useState } from 'react';
-import cooking_Icon from '../../assets/logos/cooking.png'; 
-import music_Icon from '../../assets/logos/music.png';  
-import paint_Icon from '../../assets/logos/paint.png';  
-import programing_Icon from '../../assets/logos/programing.png';  
-import drawing_Icon from '../../assets/logos/drawing.png';  
-import photo_Icon from '../../assets/logos/photo.png';  
-import sport_Icon from '../../assets/logos/sport.png';  
-import language_Icon from '../../assets/logos/language.png';  
+import React, { useEffect, useState } from "react";
+import OptionGrid from "./OptionGrid";
+import { fetchSkills } from "./api";
 
+const StepSkills = ({ dispatch, nextStep, selectedSkill }) => {
+  const [skills, setSkills] = useState([]);
+  const [currentSelection, setCurrentSelection] = useState(selectedSkill?.name || "");
 
-import OptionGrid from './OptionGrid';
-const skills = [
-  { name: 'آشپزی', icon: cooking_Icon},
-  { name: 'موسیقی',icon: music_Icon },
-  { name: 'نقاشی', icon: paint_Icon},
-  { name: 'برنامه‌نویسی',icon: programing_Icon },
-  { name: 'طراحی',icon: drawing_Icon },
-  { name: 'عکاسی',icon: photo_Icon },
-  { name: 'ورزش', icon:sport_Icon },
-  { name: 'زبان‌آموزی', icon: language_Icon },
-];
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-const SteoSkills = ({ dispatch, nextStep, prevStep, selected }) => {
-  const [currentSelection, setCurrentSelection] = useState(selected);
+  useEffect(() => {
+    let isMounted = true;
 
-  const handleSelect = (skill) => {
-    setCurrentSelection(skill.name);
-  };
+    const loadSkills = async () => {
+      setLoading(true);
+      setError("");
+
+      try {
+        const data = await fetchSkills();
+
+        if (isMounted) {
+          setSkills(data || []);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setError("خطا در دریافت فهرست مهارت‌ها از سرور.");
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadSkills();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const skillOptions = skills.map((skill) => ({
+    name: skill.name,
+    icon: skill.image_url,
+  }));
 
   const handleNext = () => {
-    if (!currentSelection) {
-      alert('لطفاً یک مهارت انتخاب کنید.');
+    const selectedSkillObject = skills.find((skill) => skill.name === currentSelection);
+
+    if (!selectedSkillObject) {
+      alert("لطفاً یک مهارت انتخاب کنید.");
       return;
     }
-    dispatch({ type: 'SET_SKILL', payload: currentSelection });
+
+    dispatch({
+      type: "SET_SKILL",
+      payload: {
+        id: selectedSkillObject.id,
+        name: selectedSkillObject.name,
+      },
+    });
+
     nextStep();
   };
 
@@ -42,19 +69,26 @@ const SteoSkills = ({ dispatch, nextStep, prevStep, selected }) => {
       <h2>فهرست مهارت‌ها</h2>
       <div className="divider"></div>
 
-      <OptionGrid 
-        options={skills} 
-        selected={currentSelection} 
-        setSelected={setCurrentSelection} 
-        columns={4} 
-      />
+      {loading && <p className="form-message">در حال دریافت مهارت‌ها...</p>}
+
+      {error && <p className="form-error">{error}</p>}
+
+      {!loading && !error && (
+        <OptionGrid
+          options={skillOptions}
+          selected={currentSelection}
+          setSelected={setCurrentSelection}
+          columns={4}
+        />
+      )}
 
       <div className="button-row">
-        <button className="button" onClick={prevStep}>بازگشت</button>
-        <button className="button" onClick={handleNext}>ادامه</button>
+        <button className="button" onClick={handleNext} disabled={loading}>
+          ادامه
+        </button>
       </div>
     </>
   );
 };
 
-export default SteoSkills;
+export default StepSkills;
