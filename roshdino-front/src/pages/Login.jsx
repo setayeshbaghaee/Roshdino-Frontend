@@ -23,17 +23,11 @@ function Login() {
       return;
     }
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (!emailPattern.test(identifier)) {
-      setError("لطفاً یک ایمیل معتبر وارد کنید (مثال: example@mail.com)");
-      return;
-    }
-
     if (password.length < 6) {
       setError("رمز عبور باید حداقل ۶ کاراکتر باشد.");
       return;
     }
+    
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/accounts/login/", {

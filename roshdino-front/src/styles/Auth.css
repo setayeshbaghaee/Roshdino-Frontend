@@ -20,7 +20,8 @@
 }
 
 .auth-card {
-  background-color: #70985E;
+  background-color: rgba(112, 152, 94, 0.5);   
+  backdrop-filter: blur(20px);
   min-height: 450px;
   padding: 40px;
   margin-right: 150px;
