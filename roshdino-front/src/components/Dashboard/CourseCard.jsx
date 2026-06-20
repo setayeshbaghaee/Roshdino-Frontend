@@ -1,38 +1,43 @@
-const CourseCard = ({ title, progress, updateProgress, id }) => {
+const CourseCard = ({
+  title,
+  progress = 0,
+  id,
+  onDelete,
+  skillIcon,
+  onOpen,
+}) => {
+  const isCompleted = Number(progress) == 100;
+
   return (
     <div className="course-card">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLA8Wf3lPJMdMf2W_VpNPn9Bzyns1olLFeQg&s"
-        alt="python course"
-        className="course-image"
-      />
+
+      <button className="delete-btn" onClick={() => onDelete(id)}>
+        ✕
+      </button>
+
+      <div className="course-image">
+        <img src={skillIcon} alt="skill" />
+      </div>
 
       <div className="course-info">
         <h3>{title}</h3>
 
         <div className="progress-top">
-          <span>{progress}%</span>
+          <span>{isCompleted ? "تکمیل شده" : `${progress}%`}</span>
         </div>
 
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={progress}
-          onChange={(e) => updateProgress(id, Number(e.target.value))}
-          className="progress-slider"
-          style={{
-            background: `linear-gradient(
-              to right,
-              #7aa35a 0%,
-              #7aa35a ${progress}%,
-              #ddd ${progress}%,
-              #ddd 100%
-            )`,
-          }}
-        />
+        <div className="progress-container">
+          <div
+            className="progress-fill"
+            style={{ width: `${Math.min(progress, 100)}%` }}
+          />
+        </div>
 
-        <button>ادامه یادگیری</button>
+        {!isCompleted && (
+          <button onClick={onOpen}>
+            ادامه یادگیری
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
-
-
 .dashboard-page {
   min-height: 100vh;
   padding: 20px;
   direction: rtl;
   background: transparent;
+  box-sizing: border-box;
 }
+
+/* ================= NAVBAR ================= */
 
 .logo-circle {
   width: 35px;
   height: 35px;
-
   border-radius: 50%;
   background-color: #dce6bf;
 }
@@ -33,48 +33,38 @@
 
 .active-link {
   background-color: #2d6b3f;
-
   border: none;
   color: white;
-
   padding: 10px 20px;
   border-radius: 20px;
-
   cursor: pointer;
 }
 
-/* profile section */
+/* ================= PROFILE ================= */
 
 .profile-section {
   margin-top: 25px;
-
   background-color: rgba(239, 237, 222, 0.95);
-
   border-radius: 25px;
-  padding: 25px 35px;
-
+  padding: 25px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.edit-btn {
-  background-color: #014421;
-  color: white;
-
-  border: none;
-
-  padding: 12px 25px;
-  border-radius: 16px;
-
-  font-size: 16px;
-  cursor: pointer;
+  gap: 30px;
+  flex-direction: row-reverse;
 }
 
 .profile-info {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
 }
 
 .profile-text h1 {
@@ -90,40 +80,45 @@
 .profile-image {
   width: 95px;
   height: 95px;
-
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* dashboard content */
+.edit-btn {
+  background-color: #014421;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ================= DASHBOARD CONTENT ================= */
 
 .dashboard-content {
   width: 100%;
-
   margin-top: 30px;
-
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .dashboard-right {
-  width: 55%;
-
-  margin-left: auto;
-  margin-right: 0;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
-/* section titles */
+/* ================= SECTION TITLES ================= */
 
 .stats-section h2,
 .courses-section h2 {
   margin-bottom: 18px;
-
   font-size: 28px;
   color: #1f1f1f;
 }
 
-/* stats cards */
+/* ================= STATS CARDS ================= */
 
 .stats-grid {
   display: flex;
@@ -132,16 +127,11 @@
 
 .stats-card {
   background-color: rgba(255, 255, 255, 0.95);
-
   flex: 1;
-
   border-radius: 20px;
   padding: 25px 15px;
-
   text-align: center;
-
   backdrop-filter: blur(4px);
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -155,145 +145,175 @@
   color: #444;
 }
 
-/* courses */
+/* ================= COURSES ================= */
 
 .courses-section {
   margin-top: 35px;
 }
 
 .courses-grid {
-  display: flex;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  gap: 24px;
+  direction: rtl;
+  align-items: stretch;
 }
+
+/* ================= COURSE CARD + ADD CARD ================= */
 
 .course-card,
 .add-course-card {
+  width: 100%;
+  min-height: 145px;
   background-color: rgba(255, 255, 255, 0.95);
-
-  border-radius: 20px;
-  padding: 15px;
-
-  flex: 1;
-
+  border-radius: 22px;
+  padding: 20px 18px;
   backdrop-filter: blur(4px);
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
-/* course card */
+/* ================= COURSE CARD ================= */
 
 .course-card {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 22px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .course-image {
-  width: 85px;
-  height: 85px;
-
-  border-radius: 15px;
+  width: 95px;
+  min-width: 95px;
+  height: 95px;
+  border-radius: 18px;
   background-color: #f1ede2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-image img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
 }
 
 .course-info {
   flex: 1;
+  width: 100%;
 }
 
 .course-info h3 {
   margin-bottom: 12px;
   font-size: 18px;
+  color: #1f1f1f;
 }
 
-.progress-bar {
+.progress-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #444;
+}
+
+.progress-container {
   width: 100%;
   height: 8px;
-
-  background-color: #ddd;
-  border-radius: 20px;
-
+  background: #e5e5e5;
+  border-radius: 10px;
   overflow: hidden;
-
-  margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 14px;
 }
 
-.progress {
-  width: 40%;
+.progress-fill {
   height: 100%;
-
-  background-color: #7aa35a;
+  width: 0%;
+  background: #2e7d32;
+  transition: width 0.5s ease;
 }
 
 .course-info button {
   border: none;
-
   background-color: #dce6bf;
   color: #014421;
-
-  padding: 8px 14px;
-  border-radius: 10px;
-
+  padding: 9px 16px;
+  border-radius: 12px;
   cursor: pointer;
-
   font-size: 14px;
 }
 
-/* add course */
+.course-info button:hover,
+.add-course-info button:hover,
+.close-btn:hover {
+  opacity: 0.9;
+}
+
+/* ================= ADD COURSE CARD ================= */
 
 .add-course-card {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 22px;
 }
 
 .plus-box {
-  width: 90px;
-  height: 90px;
-
+  width: 95px;
+  min-width: 95px;
+  height: 95px;
   background-color: #014421;
   color: white;
-
   border-radius: 18px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 55px;
 }
 
 .add-course-info h3 {
   margin-bottom: 8px;
   font-size: 20px;
+  color: #1f1f1f;
 }
 
 .add-course-info p {
   color: #666;
-
   margin-bottom: 12px;
   font-size: 14px;
 }
 
 .add-course-info button {
   border: none;
-
   background-color: #dce6bf;
   color: #014421;
-
-  padding: 8px 14px;
-  border-radius: 10px;
-
+  padding: 9px 16px;
+  border-radius: 12px;
   cursor: pointer;
-
   font-size: 14px;
 }
 
-/* edit profile */
+/* ================= EDIT PROFILE ================= */
 
 .edit-part {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 
 .image-input {
@@ -302,71 +322,193 @@
 
 .name-input {
   border: 2px solid #014421;
-
   padding: 10px 15px;
-
   border-radius: 12px;
-
   font-size: 28px;
   font-weight: bold;
-
   outline: none;
-
   width: 220px;
-
   background-color: white;
 }
 
-/* progress slider */
-
-.progress-top {
-  display: flex;
-  justify-content: flex-end;
-
-  margin-bottom: 10px;
-
-  font-size: 15px;
-  color: #444;
-}
+/* ================= OLD PROGRESS SLIDER ================= */
 
 .progress-slider {
   width: 100%;
-
   margin-bottom: 15px;
-
-  appearance: none;
-  -webkit-appearance: none;
-
-  height: 8px;
-
-  border-radius: 20px;
-
-  background: linear-gradient(
-    to right,
-    #7aa35a 0%,
-    #7aa35a 40%,
-    #ddd 40%,
-    #ddd 100%
-  );
-
-  outline: none;
-}
-
-/* circle */
-
-.progress-slider {
-  width: 100%;
-
-  margin-bottom: 15px;
-
   direction: ltr;
-
   appearance: none;
   -webkit-appearance: none;
-
   height: 8px;
-
   border-radius: 20px;
-
   outline: none;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-box {
+  width: 500px;
+  max-width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+/* فاصله بین سطرهای استپ‌ها اینجاست */
+.step-list {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  min-height: 52px;
+  line-height: 1.8;
+  box-sizing: border-box;
+}
+
+.step-item.done {
+  background: #d5f5d5;
+}
+
+.step-item.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.close-btn {
+  background-color: #dce6bf;
+  color: #014421;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 15px;
+  }
+
+  .profile-section {
+    padding: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-info {
+    width: 100%;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+  }
+
+  .stats-card {
+    width: 100%;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .course-image {
+    width: 100%;
+    min-width: 100%;
+    height: 90px;
+  }
+
+  .course-image img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .course-info {
+    width: 100%;
+  }
+
+  .course-info button {
+    width: 100%;
+  }
+
+  .add-course-card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .plus-box {
+    width: 100%;
+    min-width: 100%;
+    height: 90px;
+  }
+
+  .add-course-info {
+    width: 100%;
+  }
+
+  .add-course-info button {
+    width: 100%;
+  }
+
+  .modal-box {
+    width: 100%;
+  }
+
+  .step-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .profile-text h1 {
+    font-size: 26px;
+  }
+
+  .stats-card h1 {
+    font-size: 36px;
+  }
+
+  .stats-section h2,
+  .courses-section h2 {
+    font-size: 24px;
+  }
 }

@@ -53,3 +53,34 @@
     justify-content: center;
 }
 
+
+/* 📱 TABLET + MOBILE */
+@media (max-width: 768px) {
+
+  .home-container {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .content-section {
+    max-width: 100%;
+  }
+
+  .main-title {
+    font-size: 36px;
+  }
+
+  .sub-title {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .image-section {
+    margin-top: 30px;
+  }
+}
+

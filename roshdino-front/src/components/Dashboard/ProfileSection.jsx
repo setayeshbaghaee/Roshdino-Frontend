@@ -1,32 +1,76 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getMe, updateMe } from "../../api/accounts";
 
 const ProfileSection = () => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const [userName, setUserName] = useState("علی علوی");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
 
-  const [profileImage, setProfileImage] = useState(
-    "https://cdn.nody.ir/files/2024/09/13/nody-%D8%B9%DA%A9%D8%B3-%D9%BE%D8%B1%D8%B3%D9%86%D9%84%DB%8C-1726193886.webp",
-  );
+  const [loading, setLoading] = useState(true);
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  // گرفتن اطلاعات از بک
+  const fetchUser = async () => {
+    try {
+      setLoading(true);
+      const data = await getMe();
 
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
+      setUserName(data.username);
+      setEmail(data.email);
 
-      setProfileImage(imageUrl);
+    } catch (err) {
+      console.log("PROFILE ERROR:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  // ذخیره تغییرات
+  const handleSave = async () => {
+    try {
+      const updated = await updateMe({
+        username: userName,
+        email: email,
+      });
+
+      setUserName(updated.username);
+      setEmail(updated.email);
+
+      setIsEditing(false);
+
+    } catch (err) {
+      console.log("UPDATE PROFILE ERROR:", err);
+    }
+  };
+
+  if (loading) {
+    return <p>در حال دریافت پروفایل...</p>;
+  }
+
   return (
     <div className="profile-section">
-      <button className="edit-btn" onClick={() => setIsEditing(!isEditing)}>
+
+      <button
+        className="edit-btn"
+        onClick={() => {
+          if (isEditing) {
+            handleSave();
+          } else {
+            setIsEditing(true);
+          }
+        }}
+      >
         {isEditing ? "ذخیره پروفایل" : "ویرایش پروفایل"}
       </button>
 
       <div className="profile-info">
+
         <div className="profile-text">
+
           {isEditing ? (
             <input
               type="text"
@@ -38,28 +82,21 @@ const ProfileSection = () => {
             <h1>{userName}</h1>
           )}
 
-          <p>خوش آمدید! به مسیر یادگیری خود ادامه دهید.</p>
-        </div>
-
-        <div className="profile-image-container">
-          <img src={profileImage} alt="profile" className="profile-image" />
-
-          {isEditing && (
-            <>
-              <label htmlFor="profile-upload" className="camera-icon">
-                📷
-              </label>
-
-              <input
-                id="profile-upload"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                hidden
-              />
-            </>
+          {isEditing ? (
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="email-input"
+            />
+          ) : (
+            <p>{email}</p>
           )}
+
+          <p>خوش آمدید! به مسیر یادگیری خود ادامه دهید.</p>
+
         </div>
+
       </div>
     </div>
   );

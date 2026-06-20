@@ -1,9 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Home.css';
+
+import "../styles/Home.css";
+
+
 
 function Home() {
     const navigate = useNavigate();
+
+    const handleClick = () => {
+        const token = localStorage.getItem("access_token");
+
+        if (token) {
+            navigate("/dashboard");
+        } else {
+            navigate("/login");
+        }
+    };
 
     return (
         <div className='home-container'>
@@ -20,10 +33,7 @@ function Home() {
                     شغلی خود را با اطمینان طی کنید.
                 </p>
 
-                <button
-                    className='cta-button'
-                    onClick={() => navigate('/login')}
-                >
+                <button className="cta-button" onClick={handleClick}>
                     پنل کاربری من
                 </button>
             </div>
