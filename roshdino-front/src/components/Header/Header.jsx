@@ -90,9 +90,13 @@ function Header() {
 
         <hr style={{ width: "100%", opacity: 0.2 }} />
 
-        {token ? (
-          <>
-            <NavLink to="/dashboard" onClick={closeMenu}>داشبورد</NavLink>
+        <nav className='nav-menu'>
+          <NavLink to='/'>صفحه اصلی</NavLink>
+          <NavLink to='/about'>درباره ما</NavLink>
+          <NavLink to='/services'>خدمات</NavLink>
+          <NavLink to='/courses'>دوره ها</NavLink>
+          <NavLink to='/contact'>تماس با ما</NavLink>
+        </nav>
 
             <button className="cta-button" onClick={() => {
               handleLogout()
