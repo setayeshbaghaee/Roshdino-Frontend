@@ -15,7 +15,7 @@ function Header() {
           <NavLink to='/'>صفحه اصلی</NavLink>
           <NavLink to='/about'>درباره ما</NavLink>
           <NavLink to='/services'>خدمات</NavLink>
-          <NavLink to='/articles'>مقالات</NavLink>
+          <NavLink to='/courses'>دوره ها</NavLink>
           <NavLink to='/contact'>تماس با ما</NavLink>
         </nav>
 
