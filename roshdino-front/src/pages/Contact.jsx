@@ -1,5 +1,5 @@
 import React from 'react';
-import './Contact.css';
+import "../styles/Contact.css";
 
 function Contact() {
   const emails = [
@@ -7,7 +7,9 @@ function Contact() {
     { address: 'm_mohammadi84@comp.iust.ac.ir' },
     { address: 'fatemeh_abdullahi@comp.iust.ac.ir' },
     { address: 'm_pahlevani@comp.iust.ac.ir' },
-    { address:'y_javadzadeh@comp.iust.ac.ir' }
+    { address:'y_javadzadeh@comp.iust.ac.ir' },
+    { address:'setayesh_baghaee@comp.iust.ac.ir' }
+
   ];
 
   return (

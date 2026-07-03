@@ -103,3 +103,48 @@
   text-align: right;
   padding-right: 5px;
 }
+
+
+
+@media (max-width: 1024px) {
+  .auth-card {
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .auth-container {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .auth-card {
+    margin-right: 0;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .auth-card {
+    width: 95%;
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  .auth-title {
+    font-size: 20px;
+  }
+
+  .auth-input {
+    font-size: 14px;
+  }
+
+  .auth-button {
+    font-size: 14px;
+  }
+}

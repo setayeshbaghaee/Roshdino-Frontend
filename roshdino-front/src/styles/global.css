@@ -30,3 +30,10 @@ body {
   font-weight: bold;
   color: #004d3a;
 }
+
+@media (max-width: 768px) {
+  body {
+    background-position: center top;
+    background-size: cover;
+  }
+}

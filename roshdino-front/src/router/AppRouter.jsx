@@ -24,6 +24,7 @@ function AppRouter() {
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='dashboard' element={<Dashboard />} />
+        <Route path='add-course' element={<StepWizard />} />
       </Route>
 
       <Route path='*' element={<NotFound />} />
