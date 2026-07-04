@@ -5,13 +5,19 @@ import defaultCourseImage from "../../assets/course-placeholder.png";
 import "./CourseGrid.css";
 
 function CourseCard({ course }) {
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-    async function handleAddCourse() {
+  const imageUrl = course.image_url
+    ? course.image_url.replace(
+        "http://roshdino.chbkn.run",
+        "https://roshdino.chbkn.run"
+      )
+    : defaultCourseImage;
 
+  async function handleAddCourse() {
     const token = localStorage.getItem("access_token");
-        
+
     if (!token) {
       alert("برای افزودن دوره ابتدا باید وارد حساب کاربری خود شوید.");
       navigate("/login");
@@ -20,40 +26,42 @@ function CourseCard({ course }) {
 
     try {
       setLoading(true);
-    
+
       await addCourse(course.id);
-    
+
       alert("دوره با موفقیت به داشبورد اضافه شد.");
-    
+
     } catch (err) {
-          
-      console.error(err);   
+      console.error(err);
+
       if (err.response?.data?.detail) {
-          alert(err.response.data.detail);
-      } 
-      else if (err.response?.data?.errors) {
-          alert(JSON.stringify(err.response.data.errors));
-      } 
-      else {
-          alert("خطا در افزودن دوره.");
+        alert(err.response.data.detail);
+
+      } else if (err.response?.data?.errors) {
+        alert(JSON.stringify(err.response.data.errors));
+
+      } else {
+        alert("خطا در افزودن دوره.");
       }
+
     } finally {
-
-    setLoading(false);
-
+      setLoading(false);
     }
-    }
+  }
 
   return (
     <div className="course-card">
 
-        <div className="course-image-container">
-  <img
-    src={defaultCourseImage}
-    alt={course.title}
-    className="course-image"
-  />
-</div>
+      <div className="course-image-container">
+        <img
+          src={imageUrl}
+          alt={course.title}
+          className="course-image"
+          onError={(e) => {
+            e.currentTarget.src = defaultCourseImage;
+          }}
+        />
+      </div>
 
       <div className="course-content">
 
@@ -66,7 +74,6 @@ function CourseCard({ course }) {
         <p>{course.description}</p>
 
         <div className="course-info">
-
           <span>
             📺 {course.provider_name}
           </span>
@@ -74,11 +81,9 @@ function CourseCard({ course }) {
           <span>
             📈 {course.level}
           </span>
-
         </div>
 
         <div className="course-info">
-
           <span>
             🎥 {course.resource_type}
           </span>
@@ -86,7 +91,6 @@ function CourseCard({ course }) {
           <span>
             ⏱ {course.duration_minutes}
           </span>
-
         </div>
 
         <button
@@ -94,7 +98,9 @@ function CourseCard({ course }) {
           onClick={handleAddCourse}
           disabled={loading}
         >
-          {loading ? "در حال افزودن..." : "افزودن به داشبورد"}
+          {loading
+            ? "در حال افزودن..."
+            : "افزودن به داشبورد"}
         </button>
 
       </div>

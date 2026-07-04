@@ -24,12 +24,12 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/services' element={<Services />} />
-        <Route path='/courses' element={<Courses />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/add_course' element={<Form />} />
+        <Route path='/courses' element={<Courses />} />
 
         <Route path='*' element={<NotFound />} />
       </Routes>

@@ -161,9 +161,13 @@ const Dashboard = () => {
                 <CourseCard
                   key={course.id}
                   id={course.id}
-                  title={course.course_title}
+                  title={course.course_title || course.title}
                   progress={course.progress_percentage}
-                  skillIcon={getSkillIcon(course.skill_name)}
+                  imageUrl={
+                    course.image_url ||
+                    course.course_image_url ||
+                    course.course?.image_url
+                  }
                   onDelete={handleDelete}
                   onOpen={() => setSelectedCourse(course)}
                 />
