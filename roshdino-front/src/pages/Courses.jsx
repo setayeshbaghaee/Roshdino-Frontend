@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CourseGrid from "../components/Courses/CourseGrid";
-import { fetchCourses } from "../components/Courses/api";
+import { fetchCourses } from  "../api/all-course";
 
 function Courses() {
 

@@ -9,7 +9,7 @@ import StepAccess from "./StepAccess";
 import StepFilter from "./StepFilter";
 import SuggestedCourse from "./SuggestedCourse";
 
-import { recommendCourse, addCourse } from "./api";
+import { recommendCourse, addCourse } from "../../api/courses";
 
 import "./form_style.css";
 

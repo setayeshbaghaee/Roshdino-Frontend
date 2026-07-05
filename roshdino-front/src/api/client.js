@@ -4,18 +4,8 @@ const API_BASE_URL = "https://roshdino.chbkn.run/api"
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
-
-  headers: {
-    "Content-Type": "application/json",
-  },
-
   timeout: 15000,
 })
-
-
-/* =========================
-   REQUEST INTERCEPTOR
-========================= */
 
 api.interceptors.request.use(
   (config) => {
@@ -27,16 +17,8 @@ api.interceptors.request.use(
 
     return config
   },
-
-  (error) => {
-    return Promise.reject(error)
-  }
+  (error) => Promise.reject(error)
 )
-
-
-/* =========================
-   RESPONSE INTERCEPTOR
-========================= */
 
 api.interceptors.response.use(
   (response) => response,
@@ -51,13 +33,11 @@ api.interceptors.response.use(
     ) {
       originalRequest._retry = true
 
-      const refreshToken =
-        localStorage.getItem("refresh_token")
+      const refreshToken = localStorage.getItem("refresh_token")
 
       if (!refreshToken) {
         localStorage.removeItem("access_token")
         localStorage.removeItem("refresh_token")
-
         return Promise.reject(error)
       }
 
@@ -70,18 +50,24 @@ api.interceptors.response.use(
         )
 
         const newAccessToken = res.data.access
+        const newRefreshToken = res.data.refresh
 
-        localStorage.setItem(
-          "access_token",
-          newAccessToken
-        )
+        localStorage.setItem("access_token", newAccessToken)
 
-        originalRequest.headers.Authorization =
-          `Bearer ${newAccessToken}`
+        if (newRefreshToken) {
+          localStorage.setItem("refresh_token", newRefreshToken)
+        }
+
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
 
         return api(originalRequest)
-
       } catch (refreshError) {
+        console.log(
+          "REFRESH TOKEN ERROR:",
+          refreshError?.response?.status,
+          refreshError?.response?.data
+        )
+
         localStorage.removeItem("access_token")
         localStorage.removeItem("refresh_token")
 

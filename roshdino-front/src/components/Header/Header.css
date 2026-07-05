@@ -16,14 +16,12 @@
   align-items: center;
 }
 
-/* LOGO */
 .logo {
   color: white;
   font-size: 38px;
   font-weight: bold;
 }
 
-/* NAV DESKTOP */
 .nav-menu {
   display: flex;
   gap: 40px;
@@ -35,14 +33,12 @@
   font-size: 18px;
 }
 
-/* AUTH BOX */
 .auth-box {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* BUTTONS */
 .login-btn {
   border: 1px solid white;
   color: white;
@@ -63,7 +59,6 @@
   cursor: pointer;
 }
 
-/* HAMBURGER */
 .hamburger {
   display: none;
 
@@ -83,7 +78,6 @@
   -webkit-appearance: none;
 }
 
-/* MOBILE MENU */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -118,7 +112,6 @@
   cursor: pointer;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
 
   .nav-menu,

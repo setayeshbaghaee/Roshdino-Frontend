@@ -17,7 +17,6 @@ import {
   deleteCourse,
 } from "../api/courses";
 
-/* ================= helpers ================= */
 const calculateMembershipDays = (createdAt) => {
   if (!createdAt) return 0;
 
@@ -42,7 +41,6 @@ const Dashboard = () => {
   const [error, setError] = useState("");
   const [selectedCourse, setSelectedCourse] = useState(null);
 
-  /* ================= fetch data ================= */
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -72,7 +70,6 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  /* ================= skills map ================= */
   const skillsMap = useMemo(() => {
     const map = {};
 
@@ -87,7 +84,6 @@ const Dashboard = () => {
     return skillsMap[name?.toLowerCase()] || null;
   };
 
-  /* ================= delete course ================= */
   const handleDelete = async (id) => {
     try {
       await deleteCourse(id);
@@ -105,7 +101,6 @@ const Dashboard = () => {
     }
   };
 
-  /* ================= update course after modal change ================= */
   const handleCourseUpdate = (updatedCourse) => {
     setCourses((prevCourses) =>
       prevCourses.map((course) =>
@@ -128,7 +123,6 @@ const Dashboard = () => {
 
       <div className="dashboard-content">
         <div className="dashboard-right">
-          {/* ================= STATS ================= */}
           <div className="stats-section">
             <h2>آمار کلی</h2>
 

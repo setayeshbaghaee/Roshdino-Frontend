@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OptionGrid from "./OptionGrid";
-import { fetchSubSkillsBySkill } from "./api";
+import { fetchSubSkillsBySkill } from "../../api/skills";
 
 const StepSubSkills = ({
   dispatch,

@@ -38,8 +38,6 @@ function Header() {
 
   return (
     <>
-      {/* ================= HEADER ================= */}
-
       <header className="header">
         <div className="header-container">
 
@@ -74,8 +72,6 @@ function Header() {
 
           </nav>
 
-
-          {/* DESKTOP AUTH */}
           <div className="auth-box">
 
             {token ? (
@@ -109,8 +105,6 @@ function Header() {
 
           </div>
 
-
-          {/* HAMBURGER */}
           <button
             type="button"
             className="hamburger"
@@ -122,8 +116,6 @@ function Header() {
         </div>
       </header>
 
-
-      {/* ================= MOBILE MENU ================= */}
 
       <div
         className={`mobile-menu ${menuOpen ? "open" : ""}`}
@@ -183,9 +175,6 @@ function Header() {
             opacity: 0.2,
           }}
         />
-
-
-        {/* MOBILE AUTH */}
 
         {token ? (
           <>

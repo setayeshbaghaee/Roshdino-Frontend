@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { addCourse } from "./api";
+import { addCourse } from  "../../api/all-course";
+
 import defaultCourseImage from "../../assets/course-placeholder.png";
 import "./CourseGrid.css";
 

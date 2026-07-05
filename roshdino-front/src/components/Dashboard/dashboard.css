@@ -6,8 +6,6 @@
   box-sizing: border-box;
 }
 
-/* ================= NAVBAR ================= */
-
 .logo-circle {
   width: 35px;
   height: 35px;
@@ -40,8 +38,6 @@
   cursor: pointer;
 }
 
-/* ================= PROFILE ================= */
-
 .profile-section {
   margin-top: 25px;
   background-color: rgba(239, 237, 222, 0.95);
@@ -52,12 +48,16 @@
   align-items: center;
   gap: 30px;
   flex-direction: row-reverse;
+  direction:ltr;    
+
 }
 
-.profile-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.profile-info{
+    direction:rtl;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex:1;
 }
 
 .profile-text {
@@ -73,8 +73,8 @@
 }
 
 .profile-text p {
-  color: #666;
-  font-size: 16px;
+    color:#014421;
+    font-size: 16px;
 }
 
 .profile-image {
@@ -93,8 +93,9 @@
   font-size: 16px;
   cursor: pointer;
 }
-
-/* ================= DASHBOARD CONTENT ================= */
+.profile-edit-actions{
+    direction:rtl;
+}
 
 .dashboard-content {
   width: 100%;
@@ -109,16 +110,12 @@
   margin: 0 auto;
 }
 
-/* ================= SECTION TITLES ================= */
-
 .stats-section h2,
 .courses-section h2 {
   margin-bottom: 18px;
   font-size: 28px;
   color: #1f1f1f;
 }
-
-/* ================= STATS CARDS ================= */
 
 .stats-grid {
   display: flex;
@@ -145,8 +142,6 @@
   color: #444;
 }
 
-/* ================= COURSES ================= */
-
 .courses-section {
   margin-top: 35px;
 }
@@ -159,7 +154,6 @@
   align-items: stretch;
 }
 
-/* ================= COURSE CARD + ADD CARD ================= */
 .course-card,
 .add-course-card {
   width: 100%;
@@ -169,8 +163,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
-
-/* ================= COURSE CARD ================= */
 
 .course-card {
   position: relative;
@@ -194,7 +186,6 @@
   z-index: 3;
 }
 
-/* تصویر بالای کارت */
 .course-image {
   width: 100%;
   height: 180px;
@@ -203,7 +194,6 @@
   flex-shrink: 0;
 }
 
-/* وقتی عکس واقعی داریم */
 .course-image.has-image {
   background: transparent;
 }
@@ -215,7 +205,6 @@
   display: block;
 }
 
-/* وقتی عکس نداریم */
 .course-image.no-image {
   background-color: #f1ede2;
   display: flex;
@@ -228,7 +217,6 @@
   font-size: 14px;
 }
 
-/* محتوای پایین کارت */
 .course-content {
   flex: 1;
   padding: 18px 18px 20px;
@@ -298,7 +286,6 @@
 .course-action-btn:hover {
   opacity: 0.9;
 }
-/* ================= COURSE CARD ================= */
 
 .delete-btn {
   position: absolute;
@@ -366,24 +353,16 @@
   opacity: 0.9;
 }
 
-/* ================= ADD COURSE CARD ================= */
-
-/* ================= ADD COURSE CARD ================= */
-
 .add-course-card {
   min-height: 330px;
   padding: 30px 24px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 18px;
-
   text-align: center;
   cursor: pointer;
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -391,32 +370,23 @@
 
 .add-course-card:hover {
   transform: translateY(-4px);
-
   box-shadow:
     0 10px 30px rgba(0, 68, 33, 0.12);
 }
-
-
-/* PLUS */
 
 .plus-box {
   width: 82px;
   min-width: 82px;
   height: 82px;
-
   background-color: #014421;
   color: white;
-
   border-radius: 22px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 48px;
   font-weight: 300;
   line-height: 1;
-
   transition:
     transform 0.25s ease,
     border-radius 0.25s ease;
@@ -427,12 +397,8 @@
   border-radius: 50%;
 }
 
-
-/* TEXT */
-
 .add-course-info {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,40 +406,27 @@
 
 .add-course-info h3 {
   margin: 0 0 8px;
-
   font-size: 21px;
   font-weight: 700;
-
   color: #1f1f1f;
 }
 
 .add-course-info p {
   margin: 0 0 16px;
-
   color: #777;
-
   font-size: 14px;
   line-height: 1.8;
 }
 
-
-/* BUTTON */
-
 .add-course-info button {
   border: none;
-
   background-color: #dce6bf;
   color: #014421;
-
   padding: 10px 20px;
-
   border-radius: 12px;
-
   cursor: pointer;
-
   font-size: 14px;
   font-weight: 600;
-
   transition:
     transform 0.2s ease,
     background-color 0.2s ease;
@@ -494,8 +447,6 @@
   cursor: pointer;
   font-size: 14px;
 }
-
-/* ================= EDIT PROFILE ================= */
 
 .edit-part {
   display: flex;
@@ -519,8 +470,6 @@
   background-color: white;
 }
 
-/* ================= OLD PROGRESS SLIDER ================= */
-
 .progress-slider {
   width: 100%;
   margin-bottom: 15px;
@@ -531,8 +480,6 @@
   border-radius: 20px;
   outline: none;
 }
-
-/* ================= MODAL ================= */
 
 .modal-overlay {
   position: fixed;
@@ -555,7 +502,6 @@
   box-sizing: border-box;
 }
 
-/* فاصله بین سطرهای استپ‌ها اینجاست */
 .step-list {
   margin-top: 22px;
   display: flex;
@@ -596,8 +542,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media (max-width: 1100px) {
   .courses-grid {
     grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -630,7 +574,6 @@
   .courses-grid {
     grid-template-columns: 1fr;
   }
-
  
   .course-card {
   width: 100%;
@@ -680,4 +623,618 @@
   .courses-section h2 {
     font-size: 24px;
   }
+}
+
+.profile-section {
+  width: 100%;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 28px 32px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  direction: rtl;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: 1;
+  direction: rtl;
+}
+
+.avatar-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.avatar-shell {
+  width: 118px;
+  height: 118px;
+  padding: 0;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.avatar-shell:hover {
+  transform: scale(1.03);
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-shell:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.default-avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.default-avatar-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.avatar-loading-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.avatar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+
+.avatar-action-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.13);
+  color: white;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.avatar-action-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+
+  transform: translateY(-1px);
+}
+
+.avatar-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-avatar-btn {
+  background: rgba(220, 53, 69, 0.18);
+}
+
+.delete-avatar-btn:hover {
+  background: rgba(220, 53, 69, 0.35);
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  text-align: right;
+}
+
+.profile-text h1 {
+  margin: 0;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.profile-email {
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  direction: ltr;
+}
+
+.welcome-text {
+  margin: 5px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+}
+
+.name-input,
+.email-input {
+  width: 260px;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+   color:#014421;
+  font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.name-input:focus,
+.email-input:focus {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.profile-email{
+    color:#014421;
+}
+
+.email-input {
+  direction: ltr;
+}
+
+.profile-edit-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-btn,
+.cancel-edit-btn {
+  color:#014421;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.edit-btn:hover,
+.cancel-edit-btn:hover {
+  transform: translateY(-1px);
+}
+
+.edit-btn:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.cancel-edit-btn {
+  background: rgba(255, 255, 255, 0.1);
+    color:#014421;
+  }
+
+.profile-success-message {
+  margin: 4px 0 0;
+  color: #7ee6a3;
+  font-size: 13px;
+}
+
+
+.profile-error-message {
+  margin: 4px 0 0;
+  color: #ff8f8f;
+  font-size: 13px;
+}
+
+.profile-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ }
+
+@media (max-width: 768px) {
+
+  .profile-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 24px 18px;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .profile-text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-text h1 {
+    font-size: 24px;
+  }
+
+  .name-input,
+  .email-input {
+    width: 100%;
+  }
+
+  .profile-edit-actions {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .edit-btn {
+    flex: 1;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .avatar-shell {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .profile-text h1 {
+    font-size: 21px;
+  }
+
+
+  .profile-edit-actions {
+    flex-direction: column;
+  }
+
+
+  .edit-btn,
+  .cancel-edit-btn {
+    width: 100%;
+  }
+
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: row;
+  direction: rtl;
+  justify-content: flex-start;
+}
+
+.profile-info {
+  order: 1;
+  flex: 1;
+}
+
+.profile-edit-actions {
+  order: 2;
+  margin-right: auto;
+  margin-left: 0;
+  direction: rtl;
+}
+
+.profile-text h1,
+.profile-email,
+.welcome-text,
+.default-avatar,
+.default-avatar-icon,
+.avatar-loading-text {
+  color: #014421;
+}
+
+.avatar-shell {
+  border-color: rgba(1, 68, 33, 0.35);
+  background: rgba(1, 68, 33, 0.06);
+}
+
+.avatar-shell:hover {
+  border-color: rgba(1, 68, 33, 0.75);
+}
+
+.default-avatar-icon {
+  background: rgba(1, 68, 33, 0.10);
+}
+
+.avatar-action-btn {
+  background: rgba(1, 68, 33, 0.10);
+  color: #014421;
+  border: 1px solid rgba(1, 68, 33, 0.18);
+}
+
+.avatar-action-btn:hover {
+  background: rgba(1, 68, 33, 0.18);
+}
+
+.delete-avatar-btn {
+  background: rgba(220, 53, 69, 0.12);
+  color: #014421;
+}
+
+.delete-avatar-btn:hover {
+  background: rgba(220, 53, 69, 0.22);
+}
+
+.edit-btn {
+  background-color: #014421;
+  color: #ffffff;
+  border: none;
+}
+
+.edit-btn:hover {
+  opacity: 0.9;
+}
+
+.cancel-edit-btn {
+  background: rgba(1, 68, 33, 0.08);
+  color: #014421;
+  border: 1px solid rgba(1, 68, 33, 0.16);
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    width: 100%;
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 18px;
+    padding: 24px 18px;
+
+    direction: rtl;
+    text-align: center;
+  }
+
+  .profile-info {
+    order: 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 18px;
+
+    text-align: center;
+    direction: rtl;
+  }
+
+  .avatar-column {
+    order: 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+  }
+
+  .avatar-shell {
+    width: 135px;
+    height: 135px;
+
+    border: 3px solid rgba(1, 68, 33, 0.45);
+    background: rgba(1, 68, 33, 0.08);
+  }
+
+  .default-avatar,
+  .avatar-loading-text {
+    color: #014421;
+  }
+
+  .default-avatar-icon {
+    background: rgba(1, 68, 33, 0.12);
+    color: #014421;
+  }
+
+  .avatar-actions {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  .avatar-action-btn {
+    background: rgba(1, 68, 33, 0.12);
+    color: #014421;
+
+    border: 1px solid rgba(1, 68, 33, 0.25);
+
+    padding: 8px 14px;
+    border-radius: 10px;
+
+    font-size: 13px;
+  }
+
+  .avatar-action-btn:hover {
+    background: rgba(1, 68, 33, 0.18);
+  }
+
+  .profile-text {
+    order: 2;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+
+    text-align: center !important;
+    gap: 10px;
+  }
+
+  .profile-text h1 {
+    color: #014421;
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .profile-email,
+  .welcome-text,
+  .profile-text p {
+    color: #014421;
+    text-align: center;
+    line-height: 1.9;
+  }
+
+  .profile-edit-actions {
+    order: 2;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 4px;
+  }
+
+  .edit-btn {
+    width: 100%;
+    max-width: 340px;
+
+    background-color: #014421;
+    color: #ffffff !important;
+
+    padding: 13px 18px;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .cancel-edit-btn {
+    width: 100%;
+    max-width: 340px;
+
+    color: #014421;
+  }
+
+  .name-input,
+  .email-input {
+    width: 100%;
+    max-width: 340px;
+
+    text-align: center;
+    color: #014421;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar-shell {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-text h1 {
+    font-size: 24px;
+  }
+
+  .profile-edit-actions {
+    flex-direction: column;
+  }
+
+  .edit-btn,
+  .cancel-edit-btn {
+    max-width: 100%;
+  }
+}
+
+.dashboard-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start !important;
+  margin-top: 30px;
+}
+
+.dashboard-right {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.stats-section,
+.courses-section {
+  width: 100%;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.stats-grid {
+  width: 100%;
+  justify-content: flex-start !important;
+}
+
+.courses-grid {
+  width: 100%;
+  margin: 0 !important;
+  justify-content: flex-start !important;
+}
+
+.stats-card {
+  max-width: none;
 }

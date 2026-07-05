@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OptionGrid from "./OptionGrid";
-import { fetchSkills } from "./api";
+import { fetchSkills } from "../../api/skills";
 
 const StepSkills = ({ dispatch, nextStep, selectedSkill }) => {
   const [skills, setSkills] = useState([]);

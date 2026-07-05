@@ -14,7 +14,7 @@
 
 .main-title {
     font-size: 64px;
-    color: #0d3b2e; /* رنگ سبز تیره لوگو */
+    color: #0d3b2e; 
     margin-bottom: 10px;
 }
 
@@ -54,7 +54,6 @@
 }
 
 
-/* 📱 TABLET + MOBILE */
 @media (max-width: 768px) {
 
   .home-container {
