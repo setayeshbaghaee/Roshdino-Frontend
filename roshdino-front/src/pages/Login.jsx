@@ -30,7 +30,7 @@ function Login() {
     
 
     try {
-      const response = await fetch( "https://roshdino.chbkn.run/api/accounts/login/",
+      const response = await fetch( "https://roshdino.chbkn.dev/api/accounts/login/",
  {
         method: "POST",
         headers: { "Content-Type": "application/json" },

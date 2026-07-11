@@ -1,3 +1,4 @@
+/* کانتینر اصلی صفحه */
 .contact-page-container {
     position: relative;
     width: 100%;
@@ -15,6 +16,7 @@
     direction: rtl;
 }
 
+/* باکس شیشه‌ای وسط صفحه */
 .glass-box {
     background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(30px);
@@ -42,6 +44,7 @@
     margin-bottom: 30px;
 }
 
+/* گرید ایمیل‌ها */
 .emails-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -55,6 +58,7 @@
     text-align: center;
 }
 
+/* عنوان های ایمیل */
 .email-label {
     font-weight: bold;
     color: #1a4d3a;
@@ -62,6 +66,7 @@
     margin-bottom: 5px;
 }
 
+/* لینک ایمیل */
 .email-link {
     color: #1a4d3a;
     text-decoration: none;
@@ -71,4 +76,115 @@
 
 .email-link:hover {
     text-decoration: underline;
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+    .contact-page-container {
+        padding: 30px 20px;
+    }
+
+    .glass-box {
+        padding: 40px 35px;
+    }
+
+    .contact-title {
+        font-size: 40px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+    .contact-page-container {
+        padding: 20px 15px;
+        align-items: flex-start;
+    }
+
+    .glass-box {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .contact-title {
+        font-size: 32px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+
+    .emails-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .email-item {
+        padding: 18px;
+    }
+
+    .email-label {
+        font-size: 15px;
+    }
+
+    .email-link {
+        font-size: 14px;
+
+        /* اگر ایمیل طولانی بود از باکس بیرون نزند */
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+}
+
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width: 480px) {
+
+    .contact-page-container {
+        padding: 15px 10px;
+    }
+
+    .glass-box {
+        padding: 20px 15px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
+
+    .contact-description {
+        font-size: 14px;
+    }
+
+    .email-item {
+        padding: 15px;
+    }
+
+    .email-label {
+        font-size: 14px;
+    }
+
+    .email-link {
+        font-size: 13px;
+    }
+
 }

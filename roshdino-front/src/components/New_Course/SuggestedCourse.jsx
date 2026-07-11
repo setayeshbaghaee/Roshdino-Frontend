@@ -93,10 +93,12 @@ const SuggestedCourse = ({
   }
 
   const icon = resourceIcons[course.resource_type] || online_icon;
+  const steps = course.steps || [];
 
   return (
     <div className="suggested-content">
       <h2>دوره پیشنهادی</h2>
+
       <div className="divider"></div>
 
       <div className="suggested-course-box">
@@ -108,7 +110,9 @@ const SuggestedCourse = ({
           />
         </div>
 
-        <h3 className="suggested-course-title">{course.title}</h3>
+        <h3 className="suggested-course-title">
+          {course.title}
+        </h3>
 
         {course.description && (
           <p className="suggested-course-description">
@@ -129,22 +133,36 @@ const SuggestedCourse = ({
 
           <div className="suggested-detail-item">
             <span>نوع آموزش</span>
-            <strong>{resourceLabels[course.resource_type] || course.resource_type}</strong>
+
+            <strong>
+              {resourceLabels[course.resource_type] ||
+                course.resource_type}
+            </strong>
           </div>
 
           <div className="suggested-detail-item">
             <span>سطح</span>
-            <strong>{levelLabels[course.level] || course.level}</strong>
+
+            <strong>
+              {levelLabels[course.level] || course.level}
+            </strong>
           </div>
 
           <div className="suggested-detail-item">
             <span>مدت زمان</span>
-            <strong>{durationLabels[course.duration_minutes] || course.duration_minutes}</strong>
+
+            <strong>
+              {durationLabels[course.duration_minutes] ||
+                course.duration_minutes}
+            </strong>
           </div>
 
           <div className="suggested-detail-item">
             <span>دسترسی</span>
-            <strong>{course.is_free ? "رایگان" : "پولی"}</strong>
+
+            <strong>
+              {course.is_free ? "رایگان" : "پولی"}
+            </strong>
           </div>
         </div>
 
@@ -153,6 +171,43 @@ const SuggestedCourse = ({
             ارائه‌دهنده: {course.provider_name}
           </p>
         )}
+
+        <div className="suggested-steps">
+          <h4 className="suggested-steps-title">
+            مراحل دوره
+          </h4>
+
+          {steps.length > 0 ? (
+            <div className="suggested-steps-list">
+              {steps.map((step, index) => (
+  <div
+    key={step.id || index}
+    className="suggested-step-item"
+  >
+    <span className="suggested-step-number">
+      {index + 1}
+    </span>
+
+    <div className="suggested-step-info">
+      <strong>{step.title}</strong>
+
+      {step.description && <p>{step.description}</p>}
+
+      {step.duration_minutes && (
+        <small>
+          مدت زمان: {step.duration_minutes} دقیقه
+        </small>
+      )}
+    </div>
+  </div>
+))}
+            </div>
+          ) : (
+            <p className="suggested-no-steps">
+              مرحله‌ای برای این دوره ثبت نشده است.
+            </p>
+          )}
+        </div>
 
         {course.url && (
           <a
@@ -167,12 +222,21 @@ const SuggestedCourse = ({
       </div>
 
       <div className="suggested-buttons">
-        <button className="button cancel-light" onClick={onCancel}>
+        <button
+          className="button cancel-light"
+          onClick={onCancel}
+        >
           لغو
         </button>
 
-        <button className="button" onClick={onConfirm} disabled={addLoading}>
-          {addLoading ? "در حال اضافه کردن..." : "تایید و شروع یادگیری"}
+        <button
+          className="button"
+          onClick={onConfirm}
+          disabled={addLoading}
+        >
+          {addLoading
+            ? "در حال اضافه کردن..."
+            : "تایید و شروع یادگیری"}
         </button>
       </div>
     </div>
@@ -180,3 +244,4 @@ const SuggestedCourse = ({
 };
 
 export default SuggestedCourse;
+

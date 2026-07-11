@@ -66,3 +66,117 @@
     color: #444;
     line-height: 1.7;
 }
+
+
+/* ===========================
+   Responsive - Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+    .services-page-container {
+        padding: 30px 20px;
+    }
+
+    .glass-box {
+        padding: 35px;
+    }
+
+    .services-title {
+        font-size: 38px;
+    }
+
+    .services-text {
+        font-size: 17px;
+    }
+
+    .services-features {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+
+/* ===========================
+   Responsive - Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+    .services-page-container {
+        padding: 20px 15px;
+        align-items: flex-start;
+    }
+
+    .glass-box {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .services-title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .services-text {
+        font-size: 16px;
+        line-height: 1.9;
+        margin-bottom: 30px;
+    }
+
+    .services-features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 20px;
+    }
+
+    .service-card p {
+        font-size: 15px;
+    }
+
+}
+
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width: 480px) {
+
+    .services-page-container {
+        padding: 15px 10px;
+    }
+
+    .glass-box {
+        padding: 20px 15px;
+    }
+
+    .services-title {
+        font-size: 28px;
+    }
+
+    .services-text {
+        font-size: 15px;
+    }
+
+    .service-card {
+        padding: 18px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+}

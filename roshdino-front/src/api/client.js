@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_BASE_URL = "https://roshdino.chbkn.run/api"
+const API_BASE_URL = "https://roshdino.chbkn.dev/api"
 
 export const api = axios.create({
   baseURL: API_BASE_URL,

@@ -39,7 +39,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch(  "https://roshdino.chbkn.run/api/accounts/signin/",
+      const response = await fetch(  "https://roshdino.chbkn.dev/api/accounts/signin/",
  {
         method: "POST",
         headers: { "Content-Type": "application/json" },

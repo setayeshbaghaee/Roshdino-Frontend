@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://roshdino.chbkn.run/api",
+  baseURL: "https://roshdino.chbkn.dev/api",
   headers: {
     "Content-Type": "application/json",
   },

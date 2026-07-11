@@ -33,14 +33,7 @@ function Footer() {
           <NavLink to='/contact'>تماس با ما</NavLink>
         </div>
 
-        {/* SERVICES */}
-        <div className='footer-section'>
-          <h3>خدمات ما</h3>
-          <p>آموزش آنلاین</p>
-          <p>مشاوره تخصصی</p>
-          <p>ابزارهای کاربردی</p>
-          <p>پشتیبانی VIP</p>
-        </div>
+
 
         {/* CONTACT */}
         <div className='footer-section'>
