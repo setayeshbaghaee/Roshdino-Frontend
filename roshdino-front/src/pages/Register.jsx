@@ -28,8 +28,23 @@ function Register() {
       return;
     }
 
-    if (formData.password.length < 6) {
-      setError("رمز عبور باید حداقل ۶ کاراکتر باشد.");
+    if (!formData.password) {
+      setError("لطفاً رمز عبور را وارد کنید.");
+      return;
+    }
+
+    if (formData.password.length < 8) {
+      setError("رمز عبور باید حداقل ۸ کاراکتر باشد.");
+      return;
+    }
+
+    if (/^\d+$/.test(formData.password)) {
+      setError("رمز عبور باید علاوه بر عدد، شامل حروف نیز باشد.");
+      return;
+    }
+
+    if (!formData.password2) {
+      setError("لطفاً تکرار رمز عبور را وارد کنید.");
       return;
     }
 
@@ -51,7 +66,15 @@ function Register() {
         alert("ثبت‌نام موفقیت‌آمیز بود.");
         navigate("/login");
       } else {
-        setError(Object.values(data).flat()[0] || "خطا در ثبت‌نام");
+        const backendError = Object.values(data).flat()[0];
+
+        if (backendError === "user with this email already exists.") {
+          setError("کاربری با این ایمیل قبلاً ثبت‌نام کرده است.");
+        } else if (backendError === "user with this username already exists.") {
+          setError("این نام کاربری قبلاً استفاده شده است.");
+        } else {
+          setError(backendError || "خطا در ثبت‌نام");
+        }
       }
     } catch (err) {
       setError("خطا در اتصال به سرور.");
