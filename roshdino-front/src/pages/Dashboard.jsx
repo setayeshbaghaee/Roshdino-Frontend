@@ -127,10 +127,17 @@ const Dashboard = () => {
     );
   };
 
-  const completedCourses = courses.filter(
-    (course) =>
-      course.status === "completed" || course.progress_percentage === 100
-  ).length;
+  const isCourseCompleted = (course) =>
+    course?.status?.toLowerCase() === "completed" ||
+    Number(course?.progress_percentage) >= 100;
+
+  const completedCourseItems = courses.filter(isCourseCompleted);
+
+  const learningCourses = courses.filter(
+    (course) => !isCourseCompleted(course)
+  );
+
+  const completedCourses = completedCourseItems.length;
 
   return (
     <div className="dashboard-page">
@@ -143,31 +150,59 @@ const Dashboard = () => {
 
             <div className="stats-grid">
               <StatsCard number={completedCourses} title="تکمیل شده" />
-              <StatsCard number={courses.length} title="در حال یادگیری" />
+              <StatsCard number={learningCourses.length} title="در حال یادگیری" />
             </div>
           </div>
 
           <div className="courses-section">
-            <h2>دوره‌ها</h2>
-
             {loading && <p>لودینگ...</p>}
             {error && <p>{error}</p>}
 
-            <div className="courses-grid">
-              {courses.map((course) => (
-                <CourseCard
-                  key={course.id}
-                  id={course.id}
-                  title={course.course_title}
-                  progress={course.progress_percentage ?? 0}
-                  imageUrl={course.image_url}
-                  onDelete={handleDelete}
-                  onOpen={() => setSelectedCourse(course)}
-                />
-              ))}
+            {!loading && !error && (
+              <>
+                <div className="course-list-section">
+                  <h2>دوره‌های در حال یادگیری</h2>
 
-              <AddCourseCard addCourse={() => navigate("/add_course")} />
-            </div>
+                  <div className="courses-grid">
+                    {learningCourses.map((course) => (
+                      <CourseCard
+                        key={course.id}
+                        id={course.id}
+                        title={course.course_title}
+                        progress={course.progress_percentage ?? 0}
+                        imageUrl={course.image_url}
+                        onDelete={handleDelete}
+                        onOpen={() => setSelectedCourse(course)}
+                      />
+                    ))}
+
+                    <AddCourseCard addCourse={() => navigate("/add_course")} />
+                  </div>
+                </div>
+
+                <div className="course-list-section completed-courses-section">
+                  <h2>دوره‌های تکمیل‌شده</h2>
+
+                  {completedCourseItems.length > 0 ? (
+                    <div className="courses-grid">
+                      {completedCourseItems.map((course) => (
+                        <CourseCard
+                          key={course.id}
+                          id={course.id}
+                          title={course.course_title}
+                          progress={course.progress_percentage ?? 100}
+                          imageUrl={course.image_url}
+                          onDelete={handleDelete}
+                          onOpen={() => setSelectedCourse(course)}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <p>هنوز دوره‌ای تکمیل نشده است.</p>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
